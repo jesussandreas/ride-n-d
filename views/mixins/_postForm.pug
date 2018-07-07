@@ -1,0 +1,26 @@
+mixin postForm(post = {})
+  form(method="POST" action=`/add/${post._id || ''}` class="card" enctype="multipart/form-data")
+    label(for="name") Name
+    input(type="text" name="name" value=post.name)
+    label(for="description") Description
+    textarea(name="description")=post.description
+    //- Image Upload
+    label(for="photo")
+      input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+      if post.photo
+        img(src=`/uploads/${post.photo}` alt=post.name width=200)
+    //- address, lng and lat
+    label(for="address")
+    input(type="text" id="address" name="location[address]" value=(post.location && post.location.address))
+    label(for="lng") Address Lng
+    input(type="text" id="lng" name="location[coordinates][0]" value=(post.location && post.location.coordinates[0]) required)
+    label(for="lat") Address Lat
+    input(type="text" id="lat" name="location[coordinates][1]" value=(post.location && post.location.coordinates[1]) required)
+    - const choices = ['Sedan', 'Deluxe', 'Truck', 'Special', 'SUV', 'Minivan', 'Brand new']
+    - const tags = post.tags || []
+    ul.tags
+      each choice in choices
+        .tag.tag__choice
+          input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+          label(for=choice) #{choice}
+    input(type="submit" value="Submit" class="button")

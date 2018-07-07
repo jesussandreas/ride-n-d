@@ -1,0 +1,26 @@
+footer {
+  background: $color-whitegray;
+}
+
+.footer {
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.icons__box > * {
+  font-size: 1.6em;
+  color: $color-brand;
+  margin: .8em;
+}
+
+p.copyright {
+  font-family: $lato;
+  color: $color-black;
+}

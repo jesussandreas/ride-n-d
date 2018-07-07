@@ -1,0 +1,40 @@
+.hide {
+  text-indent: -999999px;
+  font-size: 0;
+}
+
+.button {
+  border: 0;
+  font-family: $raleway;
+  background: $color-brand;
+  color: $color-white;
+  font-family: $color-white;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: .8em;
+  cursor: pointer;
+  margin-top: 1.5em;
+}
+
+.avatar {
+ min-width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ align-self: center;
+}
+
+.card {
+  border-radius: 5px;
+  border: 1px solid $color-lightgray;
+  background: white;
+  padding: 5rem;
+  margin-bottom: 2em;
+}
+
+pre.error {
+  padding: 5rem;
+  background: white;
+  line-height: 3;
+  white-space: pre-line;
+}

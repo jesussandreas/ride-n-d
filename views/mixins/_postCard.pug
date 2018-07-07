@@ -1,0 +1,8 @@
+mixin postCard(post = {})
+  .post
+    .post__hero
+      img(src=`/uploads/${post.photo || 'store.png'}`)
+      h2.title
+        a(href=`/post/${post.slug}`) #{post.name}
+    .post__details
+      p=post.description.split(' ').slice(0, 25).join(' ')

@@ -1,0 +1,139 @@
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid $color-lightgray;
+
+  &__section {
+    display: flex;
+    &--search {
+      flex: 1
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    background: white;
+    color: $color-black;
+    text-transform: capitalize;
+    padding: 1.2rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    font-family: $lato;
+
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+
+    &:hover, &--active {
+      // background: none;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $color-gray;
+      height: 3px;
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      -webkit-transition-property: transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover:before, &:focus:before, &:active:before {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    &--logo {
+      svg {
+        width: 45px;
+        margin: .3em;
+      }
+    }
+
+  }
+}
+
+
+@media all and (max-width: 1200px) {
+  .nav {
+    &__link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      &--logo {
+        svg {
+          width: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 900px) {
+  .nav {
+    flex-wrap:wrap;
+    &__section {
+      order: 1;
+      &--search {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        order: 2;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 650px) {
+  .nav {
+    &__section {
+      width: 100%;
+      &--user {
+        order: -1;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        .avatar {
+          min-width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    &__item {
+      width: 33.333333%;
+    }
+    &__link {
+      width: 100%;
+      svg {
+        // width: 5px;
+        max-width: 100%;
+      }
+      &--logo {
+        svg {
+          width:100%;
+        }
+      }
+    }
+  }
+  .heart-count:before {
+    content: '♥️';
+    margin-right: 1rem;
+  }
+}

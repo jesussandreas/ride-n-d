@@ -1,0 +1,45 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  background: white;
+}
+
+.hero-rank {
+  margin-top: 1em;
+  border-radius: 5px;
+  min-height: 200px;
+  width: 100%;
+  background: url('https://d1a3f4spazzrp4.cloudfront.net/chameleon-assets/v1.0.0/c70b8eba-a194-42c9-b734-00bd27cda456/desk.jpg');
+  background-position: 100% 30%;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn-hero {
+  padding: .8em 4em;
+  margin-left: 2em;
+  font-family: $lato;
+  font-size: 1.2em;
+  color: $color-black;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+  transition: .3s ease all;
+}
+
+.icon {
+  margin-left: .3em;
+}
+
+.inner {
+  max-width:1150px;
+  margin: 0 auto;
+  @media all and (max-width: 1200px) {
+    padding: 2rem;
+  }
+}
