@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .inner
+    h2 Edit Your Account Info
+    form(action="/account" method="POST")
+      .card
+        label(for="name") Name
+        input(type="text" name="name" value=user.name)
+        label(for="email") Email Address
+        input(type="email" name="email" value=user.email)
+        p In order to change your gravatar image, Go to 
+          a(href="https://es.gravatar.com/", target="_blank") Gravatar
+        input.button(type="submit" value="Update My Account")

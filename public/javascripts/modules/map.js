@@ -15,7 +15,7 @@ const mapOptions = {
 }
 
 function loadPlaces(map, lat = 28.3, lng = -81.3) {
-  axios.get(`/api/stores/near?lat=${lat}&lng=${lng}`)
+  axios.get(`/api/posts/near?lat=${lat}&lng=${lng}`)
     .then(res => {
       const places = res.data;
       if (!places.length) {
@@ -40,8 +40,8 @@ function loadPlaces(map, lat = 28.3, lng = -81.3) {
         console.log(this.place);
         const html = `
           <div class="popup">
-            <a href="/store/${this.place.slug}">
-              <img src="/uploads/${this.place.photo || 'store.png'}" alt="${this.place.name}" />
+            <a href="/post/${this.place.slug}">
+              <img src="/uploads/${this.place.photo || 'default.png'}" alt="${this.place.name}" />
               <p>${this.place.name} - ${this.place.location.address}</p>
             </a>
           </div>

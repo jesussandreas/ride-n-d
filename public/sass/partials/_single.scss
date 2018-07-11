@@ -1,29 +1,11 @@
 .single {
   &__hero {
-    height: 500px;
+    height: calc(100vh - 20vh);
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
-    &:before {
-      display: block;
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      right: 0;
-      background:
-        linear-gradient(45deg, hsla(190, 95%, 43%, 1) 0%, hsla(190, 95%, 43%, 0) 70%),
-        linear-gradient(135deg, hsla(219, 93%, 48%, 1) 10%, hsla(219, 93%, 48%, 0) 80%),
-        linear-gradient(225deg, hsla(293, 93%, 48%, 1) 10%, hsla(293, 93%, 48%, 0) 80%),
-        linear-gradient(315deg, hsla(130, 96%, 45%, 1) 100%, hsla(130, 96%, 45%, 0) 70%);
-      opacity: 0.6;
-      z-index: 1;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
-    }
   }
   &__image {
     width: 100%;
@@ -37,28 +19,108 @@
     background: white;
     // clip-path: polygon(0px 2vw, 100% 0, 100% calc(100% - 2vw), 0% 100%);
     position: relative;
-    padding: 3rem;
-    margin-top: -10rem;
-    box-shadow: 0 0 10px 2px rgba(0,0,0,0.15);
+    margin-top: -1rem;
+    font-family: $lato;
+    font-size: 1em;
+    max-width: 1150px;
   }
   &__map {
-    width: calc(100% + 6rem);
-    max-width: none;
-    margin-top: -3rem;
-    margin-left: -3rem;
+    width: 100vw;
+    margin-top: -1rem;
+    border-radius: 3px;
   }
-  &__location {
-    margin: 0;
-    margin-top: -3rem;
-    margin-right: -5rem;
-    background: $black;
-    color: white;
-    display: inline-block;
-    float: right;
-    position: relative;
-    padding: 1rem;
-    @media all and (max-width: 850px) {
-      margin-right: 0;
+  // &__location {
+  //   margin: 1em;
+  //   border-radius: 5px;
+  //   margin-top: -7rem;
+  //   background: $color-black;
+  //   font-family: $raleway;
+  //   color: $color-whitegray;
+  //   display: inline-block;
+  //   float: right;
+  //   position: relative;
+  //   padding: 1rem;
+  // }
+}
+
+.post__header {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr 1fr);
+  grid-template-rows: 2;
+
+  &--title {
+    margin-bottom: 0;
+    margin-top: 0;
+    align-self: center;
+    grid-column: span 3;
+  }
+
+  &--user {
+    img {
+      display: block;
+      margin: 0 auto;
     }
+    p {
+      font-family: $lato;
+    }
+    grid-row: span 2;
+    align-self: center;
+    justify-self: center;
+  }
+
+  &--tags {
+    grid-column: span 2;
+  }
+}
+
+.post__description {
+  font-family: $lato;
+}
+
+.price__post {
+  font-size: 1.2em;
+  margin-bottom: 0;
+  font-family: $raleway;
+  font-weight: 400;
+}
+
+.book-btn {
+  margin-bottom: 2em !important;
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    // padding: 0;
+  }
+  .single__hero {
+    height: 100vh;
+  }
+  .single__image {
+    height: 70%;
+  }
+  .single__details {
+    margin-top: -15rem;
+    p {
+      padding-left: .7em;
+    }
+  }
+  .single__map {
+    width: 100%;
+    border-radius: 0;
+    margin-top: -3rem;
+  }
+  .post__header--tags {
+    grid-column: 1 / -1;
+  }
+
+  .post__header--user {
+    grid-row: span 1;
+    grid-column: 1 / -1;
+    margin-top: .5em;
+    order: 3;
+  }
+
+  .post__header--title {
+    grid-column: 1 / -1;
   }
 }

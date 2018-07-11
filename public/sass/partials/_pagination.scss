@@ -1,29 +1,79 @@
 .pagination {
   display: flex;
   align-items: center;
-  background: white;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: $shad;
+  justify-content: space-between;
+  background: $color-whitegray;
+  border-radius: 5px;
+  margin-top: 4em;
+  margin-bottom: 4em;
   &__next {
-    flex: 0 0 auto;
-    padding: 1rem 3rem 1rem 1rem;
-    a:after {
-      margin-left: 1rem;
-      content: '→'
+    margin: .8em;
+
+    a {
+      padding: 1em 3em;
+      border-radius: 5px;
+      background: $color-teal;
+      color: white;
+      font-family: $raleway;
+    }
+
+    &--disable {
+      margin: .8em;
+
+      a {
+        padding: 1em 3em;
+        border-radius: 5px;
+        background: $color-lightgray;
+        color: $color-black;
+        cursor: not-allowed;
+      }
     }
   }
   &__prev {
-    flex: 0 0 auto;
-    padding: 1rem 1rem 1rem 3rem;
-    a:before {
-      margin-right: 1rem;
-      content: '←'
+    margin: .8em;
+
+    a {
+      padding: 1em 3em;
+      border-radius: 5px;
+      background: $color-teal;
+      color: white;
+      font-family: $raleway;
+    }
+
+    &--disable {
+      margin: .8em;
+
+      a {
+        padding: 1em 3em;
+        border-radius: 5px;
+        background: $color-lightgray;
+        color: $color-black;
+        cursor: not-allowed;
+      }
     }
   }
   &__text {
-    flex: 3 0 auto;
     padding: 1rem;
     text-align: center;
+
+    p {
+      font-family: $raleway;
+      color: $color-black;
+    }
+  }
+}
+
+.mgl {
+  margin-left: 0.3em;
+}
+
+.mgr {
+  margin-right: 0.3em;
+}
+
+@media screen and (max-width: 570px) {
+  .pagination {
+    flex-direction: column;
+    padding: 1em;
   }
 }

@@ -9,6 +9,7 @@ mixin postForm(post = {})
       input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
       if post.photo
         img(src=`/uploads/${post.photo}` alt=post.name width=200)
+    small We recommend 1920x1080 or higher
     //- address, lng and lat
     label(for="address")
     input(type="text" id="address" name="location[address]" value=(post.location && post.location.address))
@@ -16,11 +17,23 @@ mixin postForm(post = {})
     input(type="text" id="lng" name="location[coordinates][0]" value=(post.location && post.location.coordinates[0]) required)
     label(for="lat") Address Lat
     input(type="text" id="lat" name="location[coordinates][1]" value=(post.location && post.location.coordinates[1]) required)
-    - const choices = ['Sedan', 'Deluxe', 'Truck', 'Special', 'SUV', 'Minivan', 'Brand new']
+    - const choices = ['Sedan', 'Deluxe', 'Truck', 'Special', 'SUV', 'Minivan', 'Brand new', 'Includes driver']
     - const tags = post.tags || []
     ul.tags
       each choice in choices
         .tag.tag__choice
           input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
           label(for=choice) #{choice}
+    
+    label(for="price") Price
+    input(type="number" name="price" value=post.price)
+    
+    - const biz = ['Hour', 'Day']
+    - const pricetype = post.pricetype || []
+    ul.tags
+      each bi in biz
+        .tag.tag__choice
+          input(type="radio" id=bi value=bi name="pricetype" checked=(pricetype.includes(bi)))
+          label(for=bi) #{bi}
+    
     input(type="submit" value="Submit" class="button")

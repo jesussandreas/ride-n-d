@@ -3,8 +3,8 @@
  */
 .reviewer {
   position: relative;
-  box-shadow: 0 0px 10px rgba(0,0,0,0.2);
-  margin-bottom: 2rem;
+  border-radius: 5px;
+  margin-bottom: 3em;
   &__stars {
     display: flex;
     justify-content: center;
@@ -12,14 +12,15 @@
       display: none;
       &:checked {
         & ~ label {
-          color: $yellow;
+          color: $color-teal;
         }
       }
       & + label {
         font-size: 0;
+        color: $color-gray;
         &:before {
           content: '★';
-          font-size: 2rem;
+          font-size: 3rem;
         }
         /* These are in the opposite DOM order
            re-order them to be visually in normal order
@@ -31,7 +32,7 @@
         &[for="star2"] { order: 2; }
         &[for="star1"] { order: 1; }
         &:hover, &:hover ~ label {
-          color: lighten($yellow,20%);
+          color: $color-teal;
         }
       }
     }
@@ -42,6 +43,8 @@
     font-size: 2rem;
     padding: 2rem;
     height: 200px;
+    border: 1px solid $color-lightgray;
+    color: $color-black;
   }
   &__meta {
     display: flex;

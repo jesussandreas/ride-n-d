@@ -1,46 +1,41 @@
 .heart {
   &__button {
-    background: none;
-    border: 0;
+    // position: relative;
+    cursor: pointer;
+    /*width: 100px;
+    height: 100px;*/
+    width: 70px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    background-image: url('https://cdn.css-tricks.com/wp-content/uploads/2016/06/web_heart_animation.png');
+    /*background-size: x y;*/
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;
     outline: 0;
-    position: relative;
-    &:after {
-      content: '♥️';
-      font-size: 20px;
-      position: absolute;
-      opacity: 0;
-      top: 0;
-    }
-    svg {
-      width: 25px;
-      fill: white;
-    }
+    margin: 0;
+    padding: 0;
+    margin-left: -1em;
+
     &--hearted {
-      svg {
-        fill: red;
-      }
+      animation-name: like;
+      /*animation-duration: 800ms;*/
+      animation-duration: .8s;
+      /*2900 / 29 = 100px*/
+      animation-timing-function: steps(28);
+      /*background-position: -2800px 0;*/
+      /*background-position: right;*/
+      animation-fill-mode: forwards;
     }
-    &--float {
-      &:after {
-        animation: fly 2.5s 1 ease-out;
-      }
+
+    &:hover {
+     background-position:right;
     }
   }
 }
 
-@keyframes fly {
-  0% {
-    transform: translateY(0);
-    left: 0;
-    opacity: 1;
-  }
-  20% { left: 20px; }
-  40% { left: -20px; }
-  60% { left: 20px; }
-  80% { left: -20px; }
-  100% {
-    transform: translateY(-400px);
-    opacity: 0;
-    left: 20px;
-  }
+@keyframes like {
+  from {background-position:left;}
+  to { background-position:right;}
 }

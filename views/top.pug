@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .inner
+    h2 Top #{posts.length} Posts
+    .table
+      .table__head
+        p Image 
+          i(class="fal fa-camera table__icon")
+        p Rank
+          i(class="fal fa-trophy-alt table__icon")
+        p Name
+          i(class="fal fa-child table__icon")
+        p Reviews
+          i(class="far fa-star table__icon")
+        p Average
+          i(class="fal fa-font table__icon")
+      each post, i in posts
+        .table__body
+          a(href=`/post/${post.slug}`)
+            img(width=200 src=`/uploads/${post.photo || 'default.png'}` alt=post.name)
+          p.rank 
+            | #{i + 1}
+            i(class="fal fa-trophy-alt table__icon")
+          a(href=`/post/${post.slug}` class="name")=post.name
+            i(class="fal fa-child table__icon")
+          p.length=post.reviews.length
+            i(class="far fa-star table__icon")
+          p.avg #{Math.round(post.averageRating * 10) / 10} / 5
+            i(class="fal fa-font table__icon")

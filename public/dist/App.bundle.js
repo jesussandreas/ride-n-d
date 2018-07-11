@@ -1007,12 +1007,9 @@ function ajaxHeart(e) {
   e.preventDefault();
   _axios2.default.post(this.action).then(function (res) {
     var isHearted = _this.heart.classList.toggle('heart__button--hearted');
-    (0, _bling.$)('.heart-count').textContent = res.data.hearts.length;
     if (isHearted) {
-      _this.heart.classList.add('heart__button--float');
-      setTimeout(function () {
-        return _this.heart.classList.remove('heart__button--float');
-      }, 2500);
+      _this.heart.classList.add('heart__button--hearted');
+      // setTimeout(() => this.heart.classList.remove('heart__button--float'), 2500);
     }
   }).catch(console.error);
 }
@@ -1057,7 +1054,7 @@ function loadPlaces(map) {
   var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 28.3;
   var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -81.3;
 
-  _axios2.default.get('/api/stores/near?lat=' + lat + '&lng=' + lng).then(function (res) {
+  _axios2.default.get('/api/posts/near?lat=' + lat + '&lng=' + lng).then(function (res) {
     var places = res.data;
     if (!places.length) {
       alert('no places found!');
@@ -1083,7 +1080,7 @@ function loadPlaces(map) {
     markers.forEach(function (marker) {
       return marker.addListener('click', function () {
         console.log(this.place);
-        var html = '\n          <div class="popup">\n            <a href="/store/' + this.place.slug + '">\n              <img src="/uploads/' + (this.place.photo || 'store.png') + '" alt="' + this.place.name + '" />\n              <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n            </a>\n          </div>\n        ';
+        var html = '\n          <div class="popup">\n            <a href="/post/' + this.place.slug + '">\n              <img src="/uploads/' + (this.place.photo || 'default.png') + '" alt="' + this.place.name + '" />\n              <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n            </a>\n          </div>\n        ';
         infoWindow.setContent(html);
         infoWindow.open(map, this);
       });
@@ -2843,6 +2840,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var heartForms = (0, _bling.$$)('form.heart');
 heartForms.on('submit', _heart2.default);
+
+// modal
+(0, _bling.$$)('.book-btn').on('click', function () {
+  (0, _bling.$)('.modal').style.animation = 'modalIn .8s forwards';
+  (0, _bling.$)('.overlay').classList.add('active');
+});
+
+(0, _bling.$$)('#close-btn').on('click', function () {
+  (0, _bling.$)('.modal').style.animation = 'modalOut .8s forwards';
+  (0, _bling.$)('.overlay').classList.remove('active');
+});
+
+// burguer menu
+(0, _bling.$)('.burguer-button').on('click', function () {
+  (0, _bling.$)('.nav__section.nav__section--pages').classList.toggle('active');
+  (0, _bling.$)('.nav__section.nav__section--user').classList.toggle('active');
+});
 
 /***/ })
 /******/ ]);

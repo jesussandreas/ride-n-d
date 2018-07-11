@@ -39,3 +39,9 @@ label {
     border-bottom: 1px solid $grey;
   }
 }
+
+@media screen and (max-width: 570px) {
+  textarea {
+    min-height: 200px;
+  }
+}

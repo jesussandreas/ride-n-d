@@ -1,0 +1,16 @@
+extends layout
+
+include mixins/_postCard
+
+block content
+  .inner
+    h2.mgnone #{tag || 'Tags'}
+    ul.tags
+      each t in tags
+        li.tag
+          a.tag__link(href=`/tags/${t._id}` class=(t._id === tag ? 'tag__link--active' : ''))
+            span.tag__text=t._id
+            //- span.tag__text=t._count
+    .posts
+      each post in posts
+        +postCard(post)

@@ -4,7 +4,7 @@ html {
 
 body {
   font-size:1.5rem;
-  color:$black;
+  color: $color-black;
 }
 
 h1, h2, h3, h4, h5, h6, {
@@ -25,22 +25,22 @@ h4 {
 
 a {
   text-decoration: none;
-  color:$black;
+  color: $color-black;
 }
 
 p {
   line-height: 2;
   font-size: 1.6rem;
+  font-family: $lato;
 }
 
 .title {
-  word-wrap: break-word;
-  position: relative;
-  z-index: 2;
   margin:0;
-  font-size: 40px;
+  margin-top: 0.3em;
+  font-size: 1.250em;
   z-index: 2;
-  line-height:1.1;
+  font-family: $raleway;
+  font-weight: bold;
   &--long {
     font-size: 30px;
   }
@@ -49,6 +49,10 @@ p {
   a {
     border-bottom: 0;
   }
+}
+
+small {
+  font-family: $lato;
 }
 
 .title--single {

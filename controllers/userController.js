@@ -58,3 +58,7 @@ exports.updateAccount = async (req, res) => {
   req.flash('success', 'Updated the profile!');
   res.redirect('back');
 };
+
+exports.forgotView = (req, res) => {
+  res.render('forgot', { title: 'Forgot password'});
+};

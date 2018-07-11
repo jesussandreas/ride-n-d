@@ -2,6 +2,11 @@ extends layout
 
 block content
   .inner
-    h2= status
-    p= message
-  pre.error!= stackHighlighted
+    h2=status
+    p=message
+    if status == 404
+      img(src="/images/icons/404.gif", class="img-center" lt="404 Friendly")
+      pre.none.error!=stackHighlighted
+    else 
+      pre.error!=stackHighlighted
+    

@@ -22,6 +22,7 @@
  height: 50px;
  border-radius: 50%;
  align-self: center;
+ border: 1px solid $color-lightgray;
 }
 
 .card {
@@ -30,6 +31,11 @@
   background: white;
   padding: 5rem;
   margin-bottom: 2em;
+  box-shadow: $shad;
+}
+
+.password-input {
+  margin-bottom: .8em;
 }
 
 pre.error {
@@ -37,4 +43,15 @@ pre.error {
   background: white;
   line-height: 3;
   white-space: pre-line;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 1rem;
+    box-shadow: none;
+  }
+
+  .inner.login-wrapper {
+    padding: 0;
+  }
 }

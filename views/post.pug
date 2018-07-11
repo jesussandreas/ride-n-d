@@ -1,0 +1,50 @@
+extends layout
+
+include mixins/_reviewForm
+include mixins/_review
+
+block content
+  if user
+    .post__like
+      form.heart(method="POST" action=`/api/posts/${post._id}/heart`)
+        - const heartStrings = user.hearts.map(obj => obj.toString())
+        - const heartClass = heartStrings.includes(post._id.toString()) ? 'heart__button--hearted' : ''
+        button.heart__button(type="submit" name="heart" class=heartClass)
+  .single
+    .single__hero
+      img.single__image(src=`/uploads/${post.photo || 'default.png'}`)
+  .single__details.inner.login-wrapper
+    img.single__map(src=h.staticMap(post.location.coordinates))
+    p Exact location provided after booking
+    //- p.single__location=post.location.address
+  .wrapper
+    .post__header
+      h2.post__header--title=post.name
+      .post__header--user
+        img.avatar(src=post.author.gravatar)
+        p=post.author.name
+      if post.tags
+        ul.tags.post__header--tags
+          each tag in post.tags
+            li.tag
+              a.tag__link(href=`/tags/${tag}`)
+                span.tag__text #{tag}
+    
+    p.post__description=post.description
+    p.price__post='$' + post.price + ' per ' + post.pricetype
+    input.button(type="submit" value="Book" class="book-btn")
+    
+    .overlay
+      .modal
+        p Get in touch
+        p=post.location.address
+        button(class="button" id="close-btn") Close
+    
+    if post.reviews
+      .reviews
+        each review in post.reviews
+          .review
+            +review(review)
+
+    if user
+      +reviewForm(post)

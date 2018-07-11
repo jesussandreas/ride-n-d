@@ -3,7 +3,7 @@
   padding: 0;
   list-style: none;
   display: flex;
-  margin-bottom: .5rem;
+  margin-bottom: 2em;
   flex-wrap: wrap;
 }
 
@@ -35,13 +35,15 @@
     }
   }
   &__link {
-    background:$yellow;
-    color:$black;
+    border: 1px solid $color-lightgray;
+    background:white;
+    border-radius: 5px;
+    color:$color-black;
+    font-weight: 400;
+    font-family: $raleway;
     display: flex;
-    padding-left: 10px;
-    clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%);
     &--active {
-      background: lighten($purple, 40%);
+      background: $color-teal;
       .tag__text {
         color: white;
       }
@@ -58,4 +60,9 @@
     margin-right: -1px; /* ugh */
     background-clip: padding-box;
   }
+}
+
+.mgnone {
+  // margin-top: 1em;
+  margin-bottom: 0;
 }

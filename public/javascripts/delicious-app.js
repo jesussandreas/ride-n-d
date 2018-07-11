@@ -14,3 +14,20 @@ makeMap( $('#map') );
 
 const heartForms = $$('form.heart');
 heartForms.on('submit', ajaxHeart);
+
+// modal
+$$('.book-btn').on('click', function () {
+  $('.modal').style.animation = 'modalIn .8s forwards';
+  $('.overlay').classList.add('active');
+});
+
+$$('#close-btn').on('click', function () {
+  $('.modal').style.animation = 'modalOut .8s forwards';
+  $('.overlay').classList.remove('active');
+});
+
+// burguer menu
+$('.burguer-button').on('click', function () {
+    $('.nav__section.nav__section--pages').classList.toggle('active')
+    $('.nav__section.nav__section--user').classList.toggle('active')
+});

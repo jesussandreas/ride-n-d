@@ -1,8 +1,44 @@
 mixin postCard(post = {})
   .post
-    .post__hero
-      img(src=`/uploads/${post.photo || 'store.png'}`)
-      h2.title
-        a(href=`/post/${post.slug}`) #{post.name}
-    .post__details
-      p=post.description.split(' ').slice(0, 25).join(' ')
+    if user
+      .post__img--user
+        .post__actions
+          if user
+            .post__action.post__action--heart
+              form.heart(method="POST" action=`/api/posts/${post._id}/heart`)
+                - const heartStrings = user.hearts.map(obj => obj.toString())
+                - const heartClass = heartStrings.includes(post._id.toString()) ? 'heart__button--hearted' : ''
+                button.heart__button(type="submit" name="heart" class=heartClass)
+                  //- !=h.icon('heart')
+          if user && post.author.equals(user._id)
+            .post__action.post__action--edit
+                a(href=`/home/${post._id}/edit`)
+                  != h.icon('pencil')
+        a(href=`/post/${post.slug}`)
+          img(src=`/uploads/${post.photo || 'default.png'}`)
+        h2.title
+          a(href=`/post/${post.slug}`) #{post.name}
+      .post__details
+        p=post.description.split(' ').slice(0, 25).join(' ')
+        p.post__details--price='$' + post.price + ' per ' + post.pricetype
+    else 
+      .post__img
+        .post__actions
+          if user
+            .post__action.post__action--heart
+              form.heart(method="POST" action=`/api/posts/${post._id}/heart`)
+                - const heartStrings = user.hearts.map(obj => obj.toString())
+                - const heartClass = heartStrings.includes(post._id.toString()) ? 'heart__button--hearted' : ''
+                button.heart__button(type="submit" name="heart" class=heartClass)
+                  //- !=h.icon('heart')
+          if user && post.author.equals(user._id)
+            .post__action.post__action--edit
+                a(href=`/home/${post._id}/edit`)
+                  != h.icon('pencil')
+        a(href=`/post/${post.slug}`)
+          img(src=`/uploads/${post.photo || 'default.png'}`)
+        h2.title
+          a(href=`/post/${post.slug}`) #{post.name}
+      .post__details
+        p=post.description.split(' ').slice(0, 25).join(' ')
+        p.post__details--price='$' + post.price + ' per ' + post.pricetype

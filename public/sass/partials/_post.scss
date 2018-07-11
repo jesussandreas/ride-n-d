@@ -1,0 +1,75 @@
+.posts {
+  display:grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-bottom: 2em;
+}
+
+.post__img--user img {
+  margin-top: -3em;
+  border-radius: 3px;
+  width: 100%;
+  height: auto;
+}
+
+.post {
+  background:white;
+
+  &__img img {
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+  }
+
+  &__details {
+    p {
+      line-height: 1.2;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+      font-family: $lato;
+      font-weight: 300;
+      font-size: 1.125em;
+    }
+  }
+}
+
+.post__details--price {
+  font-family: $lato;
+  color: $color-black;
+  font-size: 1em !important;
+  font-weight: 400 !important;
+}
+
+.post__actions {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  color: $color-black;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post__action {
+  font-size: 10px;
+  svg {
+    width: 25px;
+    fill: $color-brand;
+  }
+  &--edit {
+    a {
+      border-bottom: 0;
+      margin: 1em;
+    }
+  }
+}
+
+.post__like {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+}
+
+#book-btn {
+  margin-bottom: 1em;
+}

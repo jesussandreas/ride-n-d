@@ -1,16 +1,82 @@
 .table {
-  width: 100%;
-  td {
-    padding: 5px;
+  border: 1px solid $color-lightgray;
+  box-shadow: $shad;
+  font-family: $lato;
+  padding: 1em;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 3em;
+
+  &__icon {
+    margin-left: .3em;
   }
-  tr:nth-child(even) {
-    background: white;
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    border-bottom: 1px solid $color-lightgray;
+    margin-bottom: .5em;
+
+    p, a {
+      font-family: $raleway;
+      font-weight: bold;
+      font-size: 1.4em;
+      text-align: center;
+      color: $color-gray;
+    }
   }
-  tr:nth-child(odd):not(:first-child) {
-    background: #f7f7f7;
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    border-bottom: 1px solid $color-whitegray;
+    margin-bottom: .8em;
+
+    img {
+      border-radius: 3px;
+    }
   }
-  thead tr {
-    background: $black;
-    color: white;
+}
+
+
+span.rule {
+  margin-bottom: .5em;
+}
+
+.rank, .name, .rank, .avg, .length {
+  font-family: $lato;
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.rank {
+  color: $color-teal;
+}
+
+// .avg {
+//   border-bottom: 1px solid $color-lightgray;
+//   margin-bottom: .5em;
+// }
+
+@media screen and (max-width: 740px) {
+  .table {
+    box-shadow: none;
+    border: 0;
+    background: $color-white;
+    padding: .7em;
+    &__head {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 5px;
+    }
+    &__body {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 5px;
+      border-bottom: 1px solid $color-lightgray;
+    }
   }
 }

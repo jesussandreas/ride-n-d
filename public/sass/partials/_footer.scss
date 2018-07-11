@@ -3,8 +3,7 @@ footer {
 }
 
 .footer {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding: 2em 1em;
 
   display: flex;
   justify-content: space-between;
@@ -23,4 +22,10 @@ footer {
 p.copyright {
   font-family: $lato;
   color: $color-black;
+}
+
+@media screen and (max-width: 570px) {
+  .footer {
+    flex-direction: column;
+  }
 }

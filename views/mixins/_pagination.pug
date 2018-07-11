@@ -1,10 +1,24 @@
 mixin pagination(page, pages, count)
   .pagination
-    .pagination__prev
-      if page > 1
-        a(href=`/stores/page/${page - 1}`) Prev
+    if page > 1
+      .pagination__prev
+        a(href=`/home/page/${page - 1}`) 
+          i(class="mgr far fa-arrow-left")
+          | Prev
+    else
+      .pagination__prev--disable
+        a(disabled) 
+          i(class="mgr far fa-arrow-left disable")
+          | Prev
+    
     .pagination__text
       p Page #{page} of #{pages} - #{count} total results
-    .pagination__text
-      if page < pages
-        a(href=`/stores/page/${parseFloat(page) + 1}`) Next
+    
+    if page < pages
+      .pagination__next
+        a(href=`/home/page/${parseFloat(page) + 1}`) Next
+          i(class="mgl far fa-arrow-right")
+    else 
+      .pagination__next--disable
+        a(disabled) Next
+          i(class="mgl far fa-arrow-right")

@@ -5,7 +5,6 @@ const slug = require('slugs');
 const postSchema = mongoose.Schema({
   name: {
     type: String,
-
   },
   slug: String,
   description: {
@@ -36,6 +35,12 @@ const postSchema = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: 'You must supply an author'
+  },
+  price: {
+    type: Number,
+  },
+  pricetype: {
+    type: [String],
   }
 }, {
   toJSON: { virtuals: true },
@@ -73,7 +78,19 @@ postSchema.statics.getTagsList = function() {
   ]);
 };
 
-postSchema.statics.getTopStores = function() {
+// find reviews where the stores _id property === reviews store property
+postSchema.virtual('reviews', {
+  ref: 'Review', // what model to link?
+  localField: '_id', // which field on the post?
+  foreignField: 'post' // which field on the review?
+});
+
+function autopopulate(next) {
+  this.populate('reviews');
+  next();
+};
+
+postSchema.statics.getTopPosts = function() {
   return this.aggregate([
     // Lookup Stores and populate their reviews
     { $lookup: { from: 'reviews', localField: '_id', foreignField: 'post', as: 'reviews' }},
@@ -98,18 +115,6 @@ postSchema.statics.getTopStores = function() {
     // limit to at most 10
     { $limit: 10 }
   ]);
-}
-
-// find reviews where the stores _id property === reviews store property
-postSchema.virtual('reviews', {
-  ref: 'Review', // what model to link?
-  localField: '_id', // which field on the store?
-  foreignField: 'store' // which field on the review?
-});
-
-function autopopulate(next) {
-  this.populate('reviews');
-  next();
 }
 
 postSchema.pre('find', autopopulate);

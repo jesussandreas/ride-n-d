@@ -11,7 +11,7 @@ html
       header.top
         nav.nav
           
-          .nav__section.nav__section--pages
+          .nav__section.nav__section--logo
             li.nav__item
               a.nav__link.nav__link--logo(href="/")
                 != h.icon('logo')
@@ -22,6 +22,9 @@ html
               input.search__input(type="text" placeholder="Search" name="search" autocomplete="off")
               .search__results
           
+          .nav__section.nav__section--logo
+            button(id="burguer-btn" class="burguer-button"): i(class="fal fa-align-right")
+          
           .nav__section.nav__section--pages
             li.nav__item
             each item in h.menu
@@ -31,9 +34,8 @@ html
           
           .nav__section.nav__section--user
             if user
-              li.nav__item: a.nav__link(href="/hearts", class=(currentPath.startsWith('/hearts') ? 'nav__link--active' : ''))
-                != h.icon('heart')
-                span.heart-count #{user.hearts && user.hearts.length}
+              li.nav__item: a.nav__link(href="/favorites", class=(currentPath.startsWith('/favorites') ? 'nav__link--active' : ''))
+                span Favorites
               li.nav__item: a.nav__link(href="/logout", class=(currentPath.startsWith('/logout') ? 'nav__link--active' : ''))
                 span Logout
               li.nav__item: a.nav__link(href="/account", class=(currentPath.startsWith('/account') ? 'nav__link--active' : ''))
@@ -41,7 +43,7 @@ html
             else
               li.nav__item: a.nav__link(href="/signup", class=(currentPath.startsWith('/signup') ? 'nav__link--active' : '')) Signup
               li.nav__item: a.nav__link(href="/login", class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Log In
-
+          
     block messages
       if locals.flashes
         .inner

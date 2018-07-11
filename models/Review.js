@@ -11,10 +11,10 @@ const reviewSchema = new mongoose.Schema({
     ref: 'User',
     required: 'You must supply an author!'
   },
-  store: {
+  post: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Store',
-    required: 'You must supply an store!'
+    ref: 'Post',
+    required: 'You must supply a post!'
   },
   text: {
     type: String,

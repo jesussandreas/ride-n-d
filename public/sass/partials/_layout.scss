@@ -40,6 +40,28 @@ body {
   max-width:1150px;
   margin: 0 auto;
   @media all and (max-width: 1200px) {
-    padding: 2rem;
+    padding: 0rem 2rem;
+  }
+}
+
+.wrapper {
+  max-width:900px;
+  margin: 0 auto;
+  margin-top: 4em;
+  @media all and (max-width: 1200px) {
+    padding: 0 2em;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .hero-rank {
+    justify-content: center;
+  }
+
+  .btn-hero {
+    // margin: .5em;
+    text-align: center;
+    margin-left: 0;
+    padding: .8em;
   }
 }
