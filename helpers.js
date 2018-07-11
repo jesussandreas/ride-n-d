@@ -22,7 +22,6 @@ exports.siteName = `Ride-n-d`;
 
 exports.menu = [
   { slug: '/home', title: 'Home'},
-  // { slug: '/top', title: 'Top', },
   { slug: '/tags', title: 'Tags', icon: 'tag', },
   { slug: '/add', title: 'Become a host', },
   { slug: '/map', title: 'Map', },
