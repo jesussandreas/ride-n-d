@@ -58,6 +58,31 @@ body {
     margin-left: 0;
     padding: .8em; } }
 
+svg:not(:root).svg-inline--fa {
+  overflow: visible; }
+
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em; }
+
+.svg-inline--fa.fa-w-16 {
+  width: 1em; }
+
+.svg-inline--fa.fa-w-9 {
+  width: .5625em; }
+
+.svg-inline--fa.fa-w-14 {
+  width: .875em; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em; }
+
 html {
   box-sizing: border-box; }
 

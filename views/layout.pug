@@ -48,12 +48,12 @@ html
                 
           .nav__section.nav__section--search
             .search
-              span(class="far fa-search")
+              != h.icon('menu')
               input.search__input(type="text" placeholder="Search" name="search" autocomplete="off")
               .search__results
           
           .nav__section.nav__section--logo
-            button(id="burguer-btn" class="burguer-button"): i(class="fal fa-align-right")
+            button(id="burguer-btn" class="burguer-button"): != h.icon('menu')
           
           .nav__section.nav__section--pages
             li.nav__item
@@ -92,13 +92,13 @@ html
         p.copyright © 2018 ride-n-d technologies Inc.
         div(class="icons__box")
           a(href="#", target="_blank") 
-            i(class="fab fa-twitter")
+            != h.icon('twitter')
           a(href="#", target="_blank") 
-            i(class="fab fa-facebook-f")
+            != h.icon('facebook')
           a(href="#", target="_blank") 
-            i(class="fab fa-instagram")
+            != h.icon('instagram')
           a(href="#", target="_blank") 
-            i(class="fab fa-medium-m")
+            != h.icon('medium')
 
     block scripts
       script(defer src="https://pro.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-d84LGg2pm9KhR4mCAs3N29GQ4OYNy+K+FBHX8WhimHpPm86c839++MDABegrZ3gn" crossorigin="anonymous")
