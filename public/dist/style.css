@@ -555,7 +555,7 @@ input, textarea {
   outline: 0;
   font-family: "Lato", sans-serif; }
   input:focus, textarea:focus {
-    border: 1px solid #FF5A60; }
+    border: 1px solid #0bbe86; }
   input.input--error, textarea.input--error {
     border-color: red; }
 
@@ -927,7 +927,7 @@ span.rule {
   font-size: 10px; }
   .post__action svg {
     width: 25px;
-    fill: #FF5A60; }
+    fill: #0bbe86; }
   .post__action--edit a {
     border-bottom: 0;
     margin: 1em; }
@@ -1320,7 +1320,7 @@ span.rule {
 .button {
   border: 0;
   font-family: "Raleway", sans-serif;
-  background: #FF5A60;
+  background: #0bbe86;
   color: #FBFBFB;
   font-family: #FBFBFB;
   font-size: 1.2em;
@@ -1381,7 +1381,7 @@ footer {
 
 .icons__box > * {
   font-size: 1.6em;
-  color: #FF5A60;
+  color: #0bbe86;
   margin: .8em; }
 
 p.copyright {
